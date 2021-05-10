@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Headlie extends Component {
+class Headline extends Component {
   render() {
     const { header, desc } = this.props;
 
@@ -17,4 +17,4 @@ class Headlie extends Component {
   }
 }
 
-export default Headlie;
+export default Headline;
