@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { findByTestAttr, checkProps } from '../../utils';
-import Button from '../../components/Button';
+import { findByTestAttr, checkProps } from '../../../utils';
+import Button from '../../../components/Button';
 
 describe('Button Component', () => {
   describe('Checking PropTypes', () => {

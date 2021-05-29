@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { findByTestAttr, checkProps } from '../../utils';
-import ArticleCard from '../../components/ArticleCard';
+import { findByTestAttr, checkProps } from '../../../utils';
+import ArticleCard from '../../../components/ArticleCard';
 
 describe('ArticleCard Component', () => {
   describe('Checking PropTypes', () => {
