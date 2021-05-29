@@ -40,7 +40,7 @@ class App extends Component {
     })
 
   return (
-    <div className="App">
+    <div className="App" data-test="app-component">
       <Header />
       <section className="main">
         <Headline
@@ -49,11 +49,7 @@ class App extends Component {
           user={user}
         />
         <Button event={this.fetch} text="Get posts" />
-        {posts.length > 0 && 
-          <div>
-            {articles}
-          </div>
-        }
+        {posts.length > 0 && <div>{articles}</div>}
       </section>
     </div>
   );
