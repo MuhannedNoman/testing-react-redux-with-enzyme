@@ -18,19 +18,40 @@ const user = [
   },
 ];
 
+const initialState = {
+  hideBtn: false,
+};
+
 class App extends Component {
 
   constructor(props){
     super(props);
+    this.state = {
+      ...initialState,
+    };
     this.fetch = this.fetch.bind(this);
   }
 
    fetch () {
     this.props.fetchPosts()
+    this.updateState();
+  }
+
+  updateState = () => {
+    const {hideBtn} = this.state;
+    this.setState({
+      hideBtn: !hideBtn
+    })
+  }
+
+  // This method is only for testing purposes! 
+  returnFunction(number){
+    return number + 1;
   }
 
   render() {
     const {posts} = this.props;
+    const { hideBtn } = this.state;
 
     const articles = posts.map((post,index) => {
       const {title, body} = post;
@@ -48,7 +69,7 @@ class App extends Component {
           desc="Click the button to render posts"
           user={user}
         />
-        <Button event={this.fetch} text="Get posts" />
+        {!hideBtn && <Button event={this.fetch} text="Get posts" />}
         {posts.length > 0 && <div>{articles}</div>}
       </section>
     </div>

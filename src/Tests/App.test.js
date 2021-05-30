@@ -11,7 +11,7 @@ const setUp = (initialState = {}) => {
 };
 
 describe('App Component', () => {
-  let component;
+  let app;
   beforeEach(() => {
     const initialState = {
       posts: [
@@ -20,11 +20,24 @@ describe('App Component', () => {
         { title: 'title', body: 'text' },
       ],
     };
-    component = setUp(initialState);
+    app = setUp(initialState);
   });
 
   it('Should render without errors', () => {
-    const app = findByTestAttr(component, 'app-component');
-    expect(app.length).toBe(1);
+    const component = findByTestAttr(app, 'app-component');
+    expect(component.length).toBe(1);
+  });
+
+  it('updateState method should update state as expected', () => {
+    const component = app.instance();
+    component.updateState();
+    const state = component.state.hideBtn;
+    expect(state).toBe(true);
+  });
+
+  it('returnFunction method should return value as expected', () => {
+    const component = app.instance();
+    const result = component.returnFunction(1);
+    expect(result).toBe(2);
   });
 });
